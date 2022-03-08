@@ -1,5 +1,7 @@
-const handleRegister = require(('./handleRegister'));
+const handleRegister = require('./handleRegister');
+const handleLogin = require('./handleLogin');
 
 module.exports = {
-    handleRegister,
-}
+  handleRegister,
+  handleLogin,
+};
