@@ -1,8 +1,6 @@
-const { join } = require('path');
 const router = require('express').Router();
+const {handleRegister} = require('../controllers');
 
-router.get('/register', (req, res) => {
-    res.sendFile(join(__dirname, '..', '..', 'views', 'html', 'register.html'));
-});
+router.get('/register', handleRegister);
 
 module.exports = router;
