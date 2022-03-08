@@ -1,15 +1,8 @@
-const logoutBtn = document.querySelector('.logout');
-console.log(logoutBtn, 'dadadada');
-logoutBtn?.addEventListener('click', (e) => {
-  e.preventDefault();
-  fetch('/logout', {
-    method: 'POST',
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message === 'You are logged out') {
-        window.location.href = '/';
-      }
-    })
-    .catch(console.log);
-});
+const fetchData = (url, httpMethod, data) => fetch(url, {
+  method: httpMethod,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+  .then((res) => res.json());
