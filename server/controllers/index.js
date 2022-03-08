@@ -1,5 +1,11 @@
-const handleRegister = require(('./handleRegister'));
+const handleRegister = require('./handleRegister');
+const loginPageHandler = require('./loginPageHandler');
+const handleLogin = require('./handleLogin');
+const homePageHandler = require('./homepageHandler');
 
 module.exports = {
-    handleRegister,
-}
+  handleRegister,
+  loginPageHandler,
+  handleLogin,
+  homePageHandler,
+};
