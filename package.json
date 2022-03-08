@@ -1,0 +1,42 @@
+{
+  "name": "blog-post",
+  "version": "1.0.0",
+  "description": "Add a blog post",
+  "main": "index.js",
+  "scripts": {
+    "testDB": "cross-env NODE_ENV=test jest ./__test__/db.test.js",
+    "testRoutes": "cross-env NODE_ENV=test jest ./__test__/routes.test.js",
+    "dev": "cross-env NODE_ENV=dev nodemon ./server",
+    "start": "cross-env NODE_ENV=production node ./server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G11/Blog-Post.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G11/Blog-Post/issues"
+  },
+  "homepage": "https://github.com/GSG-G11/Blog-Post#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3"
+  }
+}
