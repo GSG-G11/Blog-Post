@@ -1,0 +1,57 @@
+form {
+  background-color: white;
+  color: black;
+  width: 550px;
+  max-width: 95%;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+form .form-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: purple;
+}
+
+form .pairs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 7px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+form .form-message {
+  margin-top: 30px;
+}
+
+form .form-message a {
+  color: purple;
+}
+
+form input[type='submit'] {
+  width: fit-content;
+  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  background-color: purple;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+}
