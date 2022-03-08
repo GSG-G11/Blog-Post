@@ -79,11 +79,17 @@ body::after {
   margin-right: 20px;
 }
 
-.global-header .side-section a {
+.global-header .side-section a,
+.logout {
   display: inline-block;
   padding: 5px 10px;
   text-decoration: none;
   color: white;
   background-color: #c59614;
   border-radius: 10px;
+}
+.logout {
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
 }
