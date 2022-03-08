@@ -9,5 +9,6 @@ const {
 router.get('/login', handleLogin);
 router.get('/register', handleRegister);
 router.post('/add-blog', postBlog);
-router.get('/logout', logoutUser);
+router.post('/logout', logoutUser);
+
 module.exports = router;
