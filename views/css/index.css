@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80.49px);
+  color: white;
+}
+
+main .txt {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.start-posting {
+  width: fit-content;
+  text-decoration: none;
+  display: block;
+  margin-inline: auto;
+  margin-top: 50px;
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
