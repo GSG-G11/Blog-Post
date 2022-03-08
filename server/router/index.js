@@ -14,10 +14,9 @@ const {
 } = require('../middleware');
 
 router.get('/register', handleRegister);
-router.get('/logout', logoutUser);
 router.get('/login', loginPageHandler);
 router.get('/home', checkAuth, homePageHandler);
-router.post('/login', handleLogin);
+router.post('/logout', logoutUser);
 router.post('/login', handleLogin);
 router.post('/add-blog', postBlog);
 
