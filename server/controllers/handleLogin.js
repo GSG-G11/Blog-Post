@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { sign } = require('jsonwebtoken');
 const { compare } = require('bcryptjs');
 const { loginSchema } = require('../utils');
@@ -39,12 +38,3 @@ module.exports = (req, res) => {
       .catch(() => res.status(500).json({ message: 'Internal Server Error' }));
   }
 };
-=======
-const { join } = require('path');
-
-const handleLogin = (req, res) => {
-  res.sendFile(join(__dirname, '..', '..', 'views', 'html', 'login.html'));
-};
-
-module.exports = handleLogin;
->>>>>>> main
