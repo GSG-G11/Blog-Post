@@ -9,15 +9,25 @@ const {
   logoutUser,
   handleSignup,
   getUserName,
+  getAllBlogs,
+  getUsernameBasedOnId,
+  pageNotFoundError,
 } = require('../controllers');
+
 const { checkAuth } = require('../middleware');
 
-router.post('/register', handleSignup);
 router.get('/register', handleRegister);
 router.get('/login', loginPageHandler);
+router.get('/all-blogs', getAllBlogs);
+
 router.get('/home', checkAuth, homePageHandler);
-router.post('/username', getUserName);
-router.post('/logout', logoutUser);
+router.get('/username', checkAuth, getUsernameBasedOnId);
+router.post('/username', checkAuth, getUserName);
+router.post('/logout', checkAuth, logoutUser);
+router.post('/add-blog', checkAuth, postBlog);
+router.post('/register', handleSignup);
 router.post('/login', handleLogin);
-router.post('/add-blog', postBlog);
+
+router.use(pageNotFoundError);
+
 module.exports = router;
