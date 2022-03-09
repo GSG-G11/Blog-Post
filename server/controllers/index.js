@@ -9,6 +9,7 @@ const getUserName = require('./getUserName');
 const getAllBlogs = require('./getAllBlogs');
 const getUsernameBasedOnId = require('./getUsernameBasedOnId');
 const pageNotFoundError = require('./pageNotFoundError');
+const serverError = require('./serverError');
 
 module.exports = {
   handleRegister,
@@ -22,4 +23,5 @@ module.exports = {
   getAllBlogs,
   getUsernameBasedOnId,
   pageNotFoundError,
+  serverError,
 };
