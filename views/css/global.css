@@ -93,3 +93,23 @@ body::after {
   cursor: pointer;
   border: none;
 }
+.error-message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 80.49px);
+}
+.error-message {
+  color: white;
+  font-size: 40px;
+}
+.error-message-container a {
+  margin-top: 20px;
+  font-size: 40px;
+  padding: 5px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #c59614;
+  border-radius: 10px;
+}
