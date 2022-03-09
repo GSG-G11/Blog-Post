@@ -1,31 +1,59 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+name: PostgreSQL service example
+on: push
+env: # Or as an environment variable
+  super_secret: ${{ secrets.SECRET }}
 jobs:
-  build:
+  # Label of the container job
+  container-job:
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+    # Docker Hub image that `container-job` executes in
+    container: node:14
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: 12345
+          POSTGRES_USER: mm
+          POSTGRES_DB: db_blog_test
+          POSTGRES_PORT: 5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm run testRoutes
-      - run: npm run testDB
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Connect to PostgreSQL
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
+        run: npm run testDB 
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
+        env: 
+          DB_URL_test: postgres://mm:12345@postgres:5432/db_blog_test
+          # The hostname used to communicate with the PostgreSQL service container
+          # The default PostgreSQL port
+      - name: testing Routes
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
+        run: npm run testRoutes
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
+        env: 
+          DB_URL_test: postgres://mm:12345@postgres:5432/db_blog_test
+          # The hostname used to communicate with the PostgreSQL service container
+          # The default PostgreSQL port    
