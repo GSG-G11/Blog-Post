@@ -7,6 +7,7 @@ module.exports = (req, res) => {
   signSchema
     .validateAsync(req.body)
     .then((data) => {
+      console.log(data);
       hashPassword(data.password, (err, password) => {
         if (err) {
           console.log(err);
@@ -20,7 +21,7 @@ module.exports = (req, res) => {
                 res.cookie('access_token', token).json({ message: 'done' });
               }
             });
-          }).catch(() => res.status(401).json({ message: 'Your email already exists.' }));
+          }).catch(() => res.status(404).json({ message: 'The email you\'re using is already taken' }));
         }
       });
     })

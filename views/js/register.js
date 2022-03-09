@@ -17,7 +17,8 @@ submit.addEventListener('click', (e) => {
         if (data && data.message === 'done') {
           window.location.href = '/home';
         } else if (data.message === 'The email you\'re using is already taken') {
-          alert(data.message);
+          console.log('hello');
+          swal('Error', data.message, 'error');
         }
       }).catch(console.log);
   } else {

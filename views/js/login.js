@@ -10,9 +10,10 @@ loginForm.addEventListener('submit', (e) => {
     const loginData = { email: loginForm.email.value, password: loginForm.password.value };
     fetchData('/login', 'POST', loginData)
       .then((data) => {
-        console.log(data);
         if (!data.name) {
-          alert(data.message);
+          swal('Error', data.message, 'error');
+          console.log(data.message);
+          // alert(data.message);
         } else {
           window.location.href = '/home';
         }
