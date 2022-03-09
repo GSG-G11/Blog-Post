@@ -12,7 +12,6 @@ submit.addEventListener('click', (e) => {
   };
   // eslint-disable-next-line no-undef
   fetchData('/register', 'POST', data)
-    .then((data) => data.json())
     .then((data) => {
       if (data && data.message === 'done') {
         window.location.href = '/home';

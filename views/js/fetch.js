@@ -4,4 +4,4 @@ const fetchData = (url, httpMethod, data) => fetch(url, {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify(data),
-});
+}).then((data) => data.json());

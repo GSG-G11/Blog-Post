@@ -5,6 +5,7 @@ const homePageHandler = require('./homepageHandler');
 const postBlog = require('./postBlog');
 const logoutUser = require('./logoutUser');
 const handleSignup = require('./handleSignup');
+const getUserName = require('./getUserName');
 
 module.exports = {
   handleRegister,
@@ -14,4 +15,5 @@ module.exports = {
   postBlog,
   logoutUser,
   handleSignup,
+  getUserName,
 };

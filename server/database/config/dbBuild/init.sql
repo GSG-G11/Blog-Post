@@ -11,7 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE blogs (
     id serial PRIMARY KEY ,
-    titel VARCHAR(50) ,
+    title VARCHAR(50) ,
     content  text NOT NULL,
     user_id INT	REFERENCES users(id) ON UPDATE CASCADE
 );
