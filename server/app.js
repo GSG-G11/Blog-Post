@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const router = require('./router');
+const { pageNotFoundError } = require('./controllers');
 
 const app = express();
 
@@ -11,5 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'views')));
 app.use(cookieParser());
 app.use(router);
+
+app.use(pageNotFoundError);
+
 app.set('port', process.env.PORT || 3333);
 module.exports = app;
