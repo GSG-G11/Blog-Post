@@ -7,8 +7,8 @@ loginForm.addEventListener('submit', (e) => {
     && loginForm.password.value.length >= 3
     && loginForm.password.value.length <= 33
   ) {
-    const data = { email: loginForm.email.value, password: loginForm.password.value };
-    fetchData('/login', 'POST', data)
+    const loginData = { email: loginForm.email.value, password: loginForm.password.value };
+    fetchData('/login', 'POST', loginData)
       .then((data) => {
         console.log(data);
         if (!data.name) {
@@ -20,5 +20,7 @@ loginForm.addEventListener('submit', (e) => {
       .catch((err) => {
         console.log(err.message);
       });
+  } else {
+    alert('Password Should be at least 3 characters long');
   }
 });

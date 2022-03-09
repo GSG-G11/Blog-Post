@@ -1,10 +1,9 @@
-const { date } = require('joi');
 const { sign } = require('jsonwebtoken');
 const { signSchema } = require('../utils');
 const hashPassword = require('../utils/hashPassword');
-const signUpQuirey = require('../database/queries/signupDB');
+const { sigupQuery } = require('../database/queries');
 
-const handleSignup = (req, res) => {
+module.exports = (req, res) => {
   signSchema
     .validateAsync(req.body)
     .then((data) => {
@@ -13,7 +12,7 @@ const handleSignup = (req, res) => {
           console.log(err);
         } else {
           const { name, email } = data;
-          signUpQuirey({ name, email, password }).then(() => {
+          sigupQuery({ name, email, password }).then(() => {
             sign({ email }, process.env.SECRET, (err, token) => {
               if (err) {
                 console.log(err);
@@ -27,4 +26,3 @@ const handleSignup = (req, res) => {
     })
     .catch(() => res.status(401).json({ message: 'Your information does not meet the requirements' }));
 };
-module.exports = handleSignup;

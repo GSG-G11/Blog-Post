@@ -10,13 +10,17 @@ submit.addEventListener('click', (e) => {
     email: email.value,
     password: password.value,
   };
-  // eslint-disable-next-line no-undef
-  fetchData('/register', 'POST', data)
-    .then((data) => {
-      if (data && data.message === 'done') {
-        window.location.href = '/home';
-      } else if (data.message === 'Your email already exists.') {
-        alert(data.message);
-      }
-    }).catch(console.log);
+
+  if (data.name.trim() !== '' && data.email.trim() !== '' && data.password.length >= 3) {
+    fetchData('/register', 'POST', data)
+      .then((data) => {
+        if (data && data.message === 'done') {
+          window.location.href = '/home';
+        } else if (data.message === 'The email you\'re using is already taken') {
+          alert(data.message);
+        }
+      }).catch(console.log);
+  } else {
+    alert('Password Should Be at least 3 Character long and Your name Should contain letters');
+  }
 });
