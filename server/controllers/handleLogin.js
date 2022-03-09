@@ -22,7 +22,10 @@ module.exports = (req, res) => {
                     if (err) {
                       console.log(err.message);
                     } else {
-                      res.cookie('access_token', token).send({ name: data.rows[0].name });
+                      res.cookie('access_token', token, {
+                        maxAge: 2592000000,
+                        httpOnly: true,
+                      }).send({ name: data.rows[0].name });
                     }
                   });
                 } else {
