@@ -7,7 +7,7 @@
     "testDB": "cross-env NODE_ENV=test jest ./__test__/db.test.js",
     "testRoutes": "cross-env NODE_ENV=test jest ./__test__/routes.test.js",
     "dev": "cross-env NODE_ENV=dev nodemon ./server",
-    "start": "cross-env NODE_ENV=production node ./server"
+    "start": "NODE_ENV=production node ./server"
   },
   "repository": {
     "type": "git",
