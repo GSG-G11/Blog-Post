@@ -6,10 +6,10 @@ INSERT INTO users (name , email , password) VALUES
   ('Mohammed','mohammed@gmail.com' , '$2a$10$6VK.9L3u7oORtqeOJUDAXOQoEOXp.z1E0tnsycmHqScL30QZfJa0u'),
   ('Zaher','zaher@gmail.com' , '$2a$10$Fc9sA8COITiuZdX8NlNSPuqLgYecbIQy2lh38WkyeUEk8LTl4fUDS');
 
-INSERT INTO blogs (titel , content , user_id) VALUES
-  ('titel1','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.' , '1'),
-  ('titel2','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores' , '2'),
-  ('titel3','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.'  , '3'),
-  ('titel4','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.'  , '4');
+INSERT INTO blogs (title , content , user_id) VALUES
+  ('title1','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.' , '1'),
+  ('title2','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores' , '2'),
+  ('title3','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.'  , '3'),
+  ('title4','Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt in, voluptates numquam magni fugit quae suscipit voluptatem quisquam iure delectus sunt ipsam deleniti commodi autem facilis alias, consequatur eveniet dolores.'  , '4');
 
 COMMIT;
