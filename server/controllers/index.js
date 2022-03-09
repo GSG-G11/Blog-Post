@@ -7,6 +7,7 @@ const logoutUser = require('./logoutUser');
 const handleSignup = require('./handleSignup');
 const getUserName = require('./getUserName');
 const pageNotFoundError = require('./pageNotFoundError');
+const serverError = require('./serverError');
 
 module.exports = {
   handleRegister,
@@ -18,4 +19,5 @@ module.exports = {
   handleSignup,
   getUserName,
   pageNotFoundError,
+  serverError,
 };
