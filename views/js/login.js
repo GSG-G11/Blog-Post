@@ -10,6 +10,7 @@ loginForm.addEventListener('submit', (e) => {
     const data = { email: loginForm.email.value, password: loginForm.password.value };
     fetchData('/login', 'POST', data)
       .then((data) => {
+        console.log(data);
         if (!data.name) {
           alert(data.message);
         } else {
