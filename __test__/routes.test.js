@@ -13,6 +13,17 @@ describe('Test route', () => {
       });
   });
 
+  test('GET Route /home, status 302, content-type text', (done) => {
+    request(app)
+      .get('/home')
+      .expect(302)
+      .expect('Content-Type', /text/)
+      .end((err, res) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+
 test('GET Route /xx, status 404, content-type html', (done) => {
   request(app)
     .get('/xx')
@@ -23,6 +34,7 @@ test('GET Route /xx, status 404, content-type html', (done) => {
       return done();
     });
 });
+
 
 
 });
