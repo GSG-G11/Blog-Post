@@ -21,42 +21,45 @@ addBlogForm.addEventListener('submit', (e) => {
   };
   if (data.blogTitle.length > 0 && data.blogContent.length > 0) {
     fetchData('/add-blog', 'POST', data).then((result) => {
-      const blogData = result[0];
+      if (result && result.message === 'Title length must be at least 3 characters long') {
+        alert(result.message);
+      } else {
+        const blogData = result[0];
+        const blogCard = document.createElement('div');
+        const blogHeader = document.createElement('div');
+        const blogTitle = document.createElement('h3');
+        const deleteBlog = document.createElement('span');
+        const blogBody = document.createElement('div');
+        const blogBlock = document.createElement('blockquote');
+        const blogParagraph = document.createElement('q');
+        const publishedBy = document.createElement('p');
 
-      const blogCard = document.createElement('div');
-      const blogHeader = document.createElement('div');
-      const blogTitle = document.createElement('h3');
-      const deleteBlog = document.createElement('span');
-      const blogBody = document.createElement('div');
-      const blogBlock = document.createElement('blockquote');
-      const blogParagraph = document.createElement('q');
-      const publishedBy = document.createElement('p');
+        blogCard.className = 'blog';
+        blogHeader.className = 'blog-header';
+        blogTitle.className = 'title';
+        deleteBlog.className = 'delete';
+        blogBody.className = 'blog-body';
+        publishedBy.className = 'by';
 
-      blogCard.className = 'blog';
-      blogHeader.className = 'blog-header';
-      blogTitle.className = 'title';
-      deleteBlog.className = 'delete';
-      blogBody.className = 'blog-body';
-      publishedBy.className = 'by';
+        fetchData('/username', 'POST')
+          .then((data) => {
+            publishedBy.textContent = data.name;
+          })
+          .catch(console.log);
 
-      fetchData('/username', 'POST')
-        .then((data) => {
-          publishedBy.textContent = data.name;
-        })
-        .catch(console.log);
+        blogBlock.appendChild(blogParagraph);
+        blogBody.appendChild(blogBlock);
+        blogBody.appendChild(publishedBy);
+        blogHeader.appendChild(blogTitle);
+        blogHeader.appendChild(deleteBlog);
+        blogCard.appendChild(blogHeader);
+        blogCard.appendChild(blogBody);
 
-      blogBlock.appendChild(blogParagraph);
-      blogBody.appendChild(blogBlock);
-      blogBody.appendChild(publishedBy);
-      blogHeader.appendChild(blogTitle);
-      blogHeader.appendChild(deleteBlog);
-      blogCard.appendChild(blogHeader);
-      blogCard.appendChild(blogBody);
-
-      deleteBlog.textContent = 'Delete';
-      blogTitle.textContent = blogData.title;
-      blogParagraph.textContent = blogData.content;
-      blogsContainer.appendChild(blogCard);
+        deleteBlog.textContent = 'Delete';
+        blogTitle.textContent = blogData.title;
+        blogParagraph.textContent = blogData.content;
+        blogsContainer.appendChild(blogCard);
+      }
     });
   }
 });
