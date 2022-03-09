@@ -1,6 +1,6 @@
 const { date } = require('joi');
 const { sign } = require('jsonwebtoken');
-const signSchema = require('../utils/validation/signSchema');
+const { signSchema } = require('../utils');
 const hashPassword = require('../utils/hashPassword');
 const signUpQuirey = require('../database/queries/signupDB');
 
