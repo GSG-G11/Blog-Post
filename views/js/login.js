@@ -12,8 +12,6 @@ loginForm.addEventListener('submit', (e) => {
       .then((data) => {
         if (!data.name) {
           swal('Error', data.message, 'error');
-          console.log(data.message);
-          // alert(data.message);
         } else {
           window.location.href = '/home';
         }

@@ -28,7 +28,7 @@ router.post('/login', handleLogin);
 router.post('/username', checkAuth, getUserName);
 router.post('/logout', checkAuth, logoutUser);
 router.post('/add-blog', checkAuth, postBlog);
-router.delete('/delete-Post/:id', checkAuth, handleDeletePost);
+router.delete('/post/:id', checkAuth, handleDeletePost);
 router.use(pageNotFoundError);
 
 module.exports = router;

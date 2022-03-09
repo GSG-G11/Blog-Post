@@ -3,23 +3,18 @@ const addBlogForm = document.forms[0];
 const blogsContainer = document.querySelector('.blogs .container');
 const welcome = document.querySelector('.welcome');
 
-const deletepost = (id) => fetch(`/delete-Post/${id}`, {
-  method: 'DELETE',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
 const createDeleteBtn = (blogHeader) => {
   const deleteBlog = document.createElement('span');
   deleteBlog.className = 'delete';
   deleteBlog.textContent = 'Delete';
   blogHeader.appendChild(deleteBlog);
 };
+
 document.addEventListener('click', (e) => {
   if (e.target.matches('.delete')) {
     e.target.parentElement.parentElement.remove();
     const blogId = e.target.parentElement.parentElement.dataset.id;
-    deletepost(blogId);
+    fetchData(`/post/${blogId}`, 'DELETE');
   }
 });
 

@@ -17,11 +17,10 @@ submit.addEventListener('click', (e) => {
         if (data && data.message === 'done') {
           window.location.href = '/home';
         } else if (data.message === 'The email you\'re using is already taken') {
-          console.log('hello');
           swal('Error', data.message, 'error');
         }
       }).catch(console.log);
   } else {
-    alert('Password Should Be at least 3 Character long and Your name Should contain letters');
+    swal('Error', 'Password Should Be at least 3 Character long and Your name Should contain letters', 'error');
   }
 });

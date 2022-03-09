@@ -7,7 +7,6 @@ module.exports = (req, res) => {
   signSchema
     .validateAsync(req.body)
     .then((data) => {
-      console.log(data);
       hashPassword(data.password, (err, password) => {
         if (err) {
           console.log(err);
