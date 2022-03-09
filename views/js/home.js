@@ -3,12 +3,26 @@ const addBlogForm = document.forms[0];
 const blogsContainer = document.querySelector('.blogs .container');
 const welcome = document.querySelector('.welcome');
 
+const deletepost = (id) =>
+  fetch(`/delete-Post/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 const createDeleteBtn = (blogHeader) => {
   const deleteBlog = document.createElement('span');
   deleteBlog.className = 'delete';
   deleteBlog.textContent = 'Delete';
   blogHeader.appendChild(deleteBlog);
 };
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.delete')) {
+    e.target.parentElement.parentElement.remove();
+    const blogId = e.target.parentElement.parentElement.dataset.id;
+    deletepost(blogId);
+  }
+});
 
 const createBlog = (blogObj, endpoint, method) => {
   const blogCard = document.createElement('div');
@@ -70,7 +84,10 @@ addBlogForm.addEventListener('submit', (e) => {
 
   if (data.blogTitle.length > 0 && data.blogContent.length > 0) {
     fetchData('/add-blog', 'POST', data).then((result) => {
-      if (result && result.message === 'Title length must be at least 3 characters long') {
+      if (
+        result &&
+        result.message === 'Title length must be at least 3 characters long'
+      ) {
         alert(result.message);
       } else {
         const blogData = result[0];

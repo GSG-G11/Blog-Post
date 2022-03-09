@@ -12,6 +12,7 @@ const {
   getAllBlogs,
   getUsernameBasedOnId,
   pageNotFoundError,
+  handleDeletePost,
 } = require('../controllers');
 
 const { checkAuth } = require('../middleware');
@@ -27,7 +28,7 @@ router.post('/logout', checkAuth, logoutUser);
 router.post('/add-blog', checkAuth, postBlog);
 router.post('/register', handleSignup);
 router.post('/login', handleLogin);
-
+router.delete('/delete-Post/:id', handleDeletePost);
 router.use(pageNotFoundError);
 
 module.exports = router;
