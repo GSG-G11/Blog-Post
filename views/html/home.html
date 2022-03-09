@@ -31,14 +31,14 @@
         <div class="side-section">
           <p class="welcome">Welcome Zaher</p>
           <div class="controls">
-              <input type="submit" class="logout" value="Log out">
+            <input type="submit" class="logout" value="Log out" />
           </div>
         </div>
       </div>
     </header>
     <section class="add-post">
       <div class="container">
-        <form action="/add-blog" method="post">
+        <form id="add-blog-form">
           <div class="inputs">
             <input type="text" name="blogTitle" placeholder="Blog title..." />
             <textarea
@@ -46,13 +46,13 @@
               placeholder="Blog content..."
             ></textarea>
           </div>
-          <button class="add-blog"><i class="fa-solid fa-plus"></i></button>
+          <input type="submit" class="add-blog" />
         </form>
       </div>
     </section>
     <section class="blogs">
       <div class="container">
-        <!-- <div class="blog">
+        <div class="blog">
           <div class="blog-header">
             <h3 class="title">You Don't Know JavaScript</h3>
             <span class="delete">Delete</span>
@@ -68,10 +68,11 @@
             </blockquote>
             <p class="by">Zaher</p>
           </div>
-        </div> -->
+        </div>
       </div>
     </section>
     <script src="../js/fetch.js"></script>
     <script src="../js/home.js"></script>
+    <script src="../js/addBlog.js"></script>
   </body>
 </html>
