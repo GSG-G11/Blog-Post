@@ -4,6 +4,7 @@ const postBlogDB = require('./postBlogDB');
 const getAllBlogsQuery = require('./getAllBlogsQuery');
 const getUserNameUponIdQuery = require('./getUserNameUponIdQuery');
 const getUserIdQuery = require('./getUserIdQuery');
+const sigupQuery = require('./signupDB');
 
 module.exports = {
   getUserInfo,
@@ -12,4 +13,5 @@ module.exports = {
   getAllBlogsQuery,
   getUserNameUponIdQuery,
   getUserIdQuery,
+  sigupQuery,
 };

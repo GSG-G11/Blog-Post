@@ -1,6 +1,6 @@
 const { getUsernameQuery } = require('../database/queries');
 
-const getUserName = (req, res) => {
+module.exports = (req, res) => {
   const { email } = req.decoded;
   getUsernameQuery(email)
     .then((data) => {
@@ -10,5 +10,3 @@ const getUserName = (req, res) => {
       res.status(500).json({ message: 'Server Error' });
     });
 };
-
-module.exports = getUserName;
