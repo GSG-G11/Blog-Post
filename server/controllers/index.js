@@ -6,6 +6,7 @@ const postBlog = require('./postBlog');
 const logoutUser = require('./logoutUser');
 const handleSignup = require('./handleSignup');
 const getUserName = require('./getUserName');
+const pageNotFoundError = require('./pageNotFoundError');
 
 module.exports = {
   handleRegister,
@@ -16,4 +17,5 @@ module.exports = {
   logoutUser,
   handleSignup,
   getUserName,
+  pageNotFoundError,
 };
