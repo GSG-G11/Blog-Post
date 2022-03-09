@@ -13,11 +13,14 @@ module.exports = (req, res) => {
         } else {
           const { name, email } = data;
           sigupQuery({ name, email, password }).then(() => {
-            sign({ email }, process.env.SECRET, (err, token) => {
+            sign({ email }, process.env.SECRET, { expiresIn: '30d' }, (err, token) => {
               if (err) {
                 console.log(err);
               } else {
-                res.cookie('access_token', token).json({ message: 'done' });
+                res.cookie('access_token', token, {
+                  maxAge: 2592000000,
+                  httpOnly: true,
+                }).json({ message: 'done' });
               }
             });
           }).catch(() => res.status(404).json({ message: 'The email you\'re using is already taken' }));
