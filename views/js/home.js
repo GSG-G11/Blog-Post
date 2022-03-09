@@ -3,24 +3,18 @@ const addBlogForm = document.forms[0];
 const blogsContainer = document.querySelector('.blogs .container');
 const welcome = document.querySelector('.welcome');
 
-const deletepost = (id) =>
-  fetch(`/delete-Post/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
 const createDeleteBtn = (blogHeader) => {
   const deleteBlog = document.createElement('span');
   deleteBlog.className = 'delete';
   deleteBlog.textContent = 'Delete';
   blogHeader.appendChild(deleteBlog);
 };
+
 document.addEventListener('click', (e) => {
   if (e.target.matches('.delete')) {
     e.target.parentElement.parentElement.remove();
     const blogId = e.target.parentElement.parentElement.dataset.id;
-    deletepost(blogId);
+    fetchData(`/post/${blogId}`, 'DELETE');
   }
 });
 
@@ -60,7 +54,7 @@ const createBlog = (blogObj, endpoint, method) => {
 
   blogTitle.textContent = blogObj.title;
   blogParagraph.textContent = blogObj.content;
-  blogsContainer.appendChild(blogCard);
+  blogsContainer.prepend(blogCard);
 };
 
 logoutBtn.addEventListener('click', (e) => {
@@ -85,12 +79,14 @@ addBlogForm.addEventListener('submit', (e) => {
   if (data.blogTitle.length > 0 && data.blogContent.length > 0) {
     fetchData('/add-blog', 'POST', data).then((result) => {
       if (
-        result &&
-        result.message === 'Title length must be at least 3 characters long'
+        result
+        && result.message === 'Title length must be at least 3 characters long'
       ) {
-        alert(result.message);
+        swal('Error', result.message, 'error');
       } else {
         const blogData = result[0];
+        addBlogForm.blogTitle.value = '';
+        addBlogForm.blogContent.value = '';
         createBlog(blogData, '/username', 'POST');
       }
     });

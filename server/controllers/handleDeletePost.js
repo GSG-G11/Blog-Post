@@ -1,8 +1,7 @@
-const deletePostQuery = require('../database/queries/deletePostQuery');
+const { deletePostQuery } = require('../database/queries');
 
-const handleDeletePost = (req, res) => {
-  console.log(req.params.id);
-  deletePostQuery(req.params.id).then(console.log);
- 
-  };
-module.exports = handleDeletePost
+module.exports = (req, res) => {
+  deletePostQuery(req.params.id)
+    .then((data) => res.json(data.rows[0]))
+    .catch(() => res.status(500).json({ message: 'Internal Server Error' }));
+};

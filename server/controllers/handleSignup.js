@@ -20,7 +20,7 @@ module.exports = (req, res) => {
                 res.cookie('access_token', token).json({ message: 'done' });
               }
             });
-          }).catch(() => res.status(401).json({ message: 'Your email already exists.' }));
+          }).catch(() => res.status(404).json({ message: 'The email you\'re using is already taken' }));
         }
       });
     })
