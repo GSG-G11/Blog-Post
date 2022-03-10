@@ -44,6 +44,7 @@
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#data-base">Database Schema</a></li>
   </ol>
 </details>
 
@@ -110,10 +111,14 @@ Here's why:
    ```
 ### You are ready, feel free. 😊
 
-
 <p align="right"><a href="#top">back to top</a></p>
 
 
+## Database Schema
+
+![drawSQL-export-2022-03-08_11_34](https://user-images.githubusercontent.com/71943250/157611182-89b8fca9-c1de-41d0-8184-7deeb0b4528e.png)
+
+<p align="right"><a href="#top">back to top</a></p>
 
 
 <!-- CONTACT -->
