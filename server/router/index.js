@@ -25,10 +25,11 @@ router.get('/home', checkAuth, homePageHandler);
 router.get('/username', checkAuth, getUsernameBasedOnId);
 router.post('/register', handleSignup);
 router.post('/login', handleLogin);
-router.post('/username', checkAuth, getUserName);
-router.post('/logout', checkAuth, logoutUser);
-router.post('/add-blog', checkAuth, postBlog);
-router.delete('/post/:id', checkAuth, handleDeletePost);
+router.use(checkAuth);
+router.post('/username', getUserName);
+router.post('/logout', logoutUser);
+router.post('/add-blog', postBlog);
+router.delete('/post/:id', handleDeletePost);
 router.use(pageNotFoundError);
 
 module.exports = router;
